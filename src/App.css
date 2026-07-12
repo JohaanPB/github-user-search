@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -153,4 +155,141 @@ h1 {
 .repo-lang {
   font-size: 0.8rem;
   color: #7ee787;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== Empty state ===== */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #8b949e;
+}
+
+.empty-state p {
+  margin: 6px 0;
+  font-size: 1.05rem;
+}
+
+.empty-hint {
+  font-size: 0.85rem !important;
+  color: #6e7681;
+}
+
+/* ===== Fade-in animation for results ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.35s ease-out;
+}
+
+/* ===== Hover effects ===== */
+.user-card {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.user-card:hover {
+  border-color: #58a6ff;
+}
+
+.repo-item {
+  transition: transform 0.15s ease, background 0.15s ease;
+  border-radius: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 0 -8px;
+}
+
+.repo-item:hover {
+  background: #1c2128;
+  transform: translateX(2px);
+}
+
+/* ===== Recent searches chips ===== */
+.recent-searches {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.recent-label {
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+.chip {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.chip:hover {
+  background: #30363d;
+  border-color: #58a6ff;
+}
+
+/* ===== Language dot ===== */
+.repo-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ===== Skeleton loader ===== */
+.skeleton {
+  overflow: hidden;
+}
+
+.skeleton-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  flex-shrink: 0;
+}
+
+.skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.skeleton-line {
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeleton-title { width: 40%; height: 20px; }
+.skeleton-subtitle { width: 25%; }
+.skeleton-text { width: 60%; }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
