@@ -51,21 +51,23 @@ function RepoList({ username }) {
           <li key={repo.id} className="repo-item">
             {/* "key" is required by React to track items in a list efficiently -
                 it must be unique per item, so we use GitHub's repo id */}
-            <a href={repo.html_url} target="_blank" rel="noreferrer">
-              {repo.name}
-            </a>
+            <div className="repo-header">
+              <a href={repo.html_url} target="_blank" rel="noreferrer">
+                {repo.name}
+              </a>
+              {repo.language && (
+                <span className="repo-lang">
+                  <span
+                    className="lang-dot"
+                    style={{
+                      backgroundColor: LANGUAGE_COLORS[repo.language] || '#8b949e',
+                    }}
+                  />
+                  {repo.language}
+                </span>
+              )}
+            </div>
             {repo.description && <p>{repo.description}</p>}
-            {repo.language && (
-              <span className="repo-lang">
-                <span
-                  className="lang-dot"
-                  style={{
-                    backgroundColor: LANGUAGE_COLORS[repo.language] || '#8b949e',
-                  }}
-                />
-                {repo.language}
-              </span>
-            )}
           </li>
         ))}
       </ul>

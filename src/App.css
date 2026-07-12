@@ -241,10 +241,18 @@ body {
 }
 
 /* ===== Language dot ===== */
+.repo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .repo-lang {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  flex-shrink: 0;
 }
 
 .lang-dot {
